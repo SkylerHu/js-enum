@@ -1,0 +1,58 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true,
+    "jest": true,
+    "node": true
+  },
+  "globals": {
+    "dashjs": true,
+    "WebKitMediaSource": true,
+    "MediaSource": true,
+    "WebKitMediaKeys": true,
+    "MSMediaKeys": true,
+    "MediaKeys": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-caller": 2,
+    "no-undef": 2,
+    "no-unused-vars": 2,
+    "no-use-before-define": 0,
+    "object-curly-spacing": ["error", "always"],
+    "strict": 0,
+    "semi": 2,
+    "no-loop-func": 0,
+    "no-multi-spaces": "error",
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["tests/**/*"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

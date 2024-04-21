@@ -1,0 +1,17 @@
+{
+  "verbose": true,
+  "collectCoverage": true,
+  "coverageDirectory": "./.coverage",
+  "moduleFileExtensions": [
+    "js",
+    "json"
+  ],
+  "testMatch": [
+    "**/tests/**/*.js"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}",
+    "!**/node_modules/**"
+  ],
+  "testEnvironment": "node"
+}

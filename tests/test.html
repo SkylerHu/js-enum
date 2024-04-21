@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test Enum in html</title>
+  <script src="../dist/index.js">
+  </script>
+  <script>
+    const members = [
+      { key: 'RED', value: 'red', label: '红色' },
+      { key: 'GREEN', value: 'green', label: '绿色' },
+    ];
+    const Color = new Enum(members);
+    console.log(Color);
+    console.log(Color.RED);
+    console.log(Color.GREEN);
+  </script>
+</head>
+<body>
+  <div id="id">Test Enum in html script.</div>
+</body>
+</html>
