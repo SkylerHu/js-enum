@@ -23,13 +23,13 @@ new Enum([
 ### Bower
 
 ```html
-<script src="releases/js-enum.min.js"></script>
+<script src="releases/js-enum-latest.min.js"></script>
 <script>
     new Enum([{ key: 'RED', value: 'red', label: '红色' }]);
 </script>
 ```
 
-> ps: 可自行将`releases/js-enum.min.js`文件上传到CDN、或者拷贝到项目里引用。
+> ps: 可自行将[releases/js-enum-latest.min.js](./releases/js-enum-latest.min.js)文件上传到CDN、或者拷贝到项目里引用。
 
 # 类Enum
 
@@ -42,14 +42,14 @@ new Enum([
 | 参数 | 类型 | 说明 | 默认值 | 版本 |
 | - | - | - | - | - |
 | data | array/object | 初始化枚举成员 | | |
-| options | object       | 配置选项 | | |
+| options | object | 配置选项 | | |
 
 options参数说明
 
 | 参数 | 类型 | 说明 | 默认值 | 版本 |
 | - | - | - | - | - |
-| freez | bool | 初始化枚举成员,只读不允许修改 | true | |
-| allDefaultValue | object | 定义刷选默认"全部"的场景 | { key: '__ALL', value: '', label: '全部' } | |
+| freez | bool | 初始化枚举成员,只读不允许修改 | true |  |
+| allDefaultValue | object | 定义刷选默认"全部"的场景 | { key: '__ALL', value: '', label: '全部' } |  |
 
 ## Usage使用示例
 
@@ -111,8 +111,9 @@ ColorV2.toJSON(); // [{"key":"Red","value":"red"},{"key":"blue","value":"blue"}]
 ColorV2.Red // 'red'
 ColorV2.green // 'green'
 ```
+
 ## 前端组件中使用
-使用`React + AntDesign`举例：
+使用`React + Ant Design`举例：
 ```jsx
 import React from 'react';
 import { Select, Radio, Table } from 'antd';
@@ -122,7 +123,7 @@ import Enum from 'js-enumerate';
 const Color = new Enum([
   { key: 'RED', value: 'red', label: '红色' },
   { key: 'GREEN', value: 'green', label: '绿色' },
-])
+]);
 // 依次应用于 下拉选项、单选框、表格字段的筛选菜单项
 const App = () => (
   <>

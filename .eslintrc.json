@@ -47,6 +47,7 @@
       }
     ]
   },
+  "ignorePatterns": ["releases/**/*"],
   "overrides": [
     {
       "files": ["tests/**/*"],

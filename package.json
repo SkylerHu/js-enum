@@ -41,7 +41,12 @@
   "description": "Enum is a javascript module that introduces the Enum Type. It works for node.js, in the browser and for deno.",
   "keywords": [
     "enum",
-    "js-enum"
+    "enumerate",
+    "javascript",
+    "js-enum",
+    "js-enumerate",
+    "react-enum",
+    "vue-enum"
   ],
   "homepage": "https://github.com/SkylerHu/js-enum",
   "repository": {
