@@ -12,6 +12,9 @@ endef
 export PRINT_HELP_PYSCRIPT
 BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
+libName=`jq -r .name package.json`
+libVersion=`jq -r .version package.json`
+
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
@@ -34,8 +37,12 @@ lint: ## check style with eslint
 test: lint ## run tests with coverage
 	npm run test
 
-dist: test clean-build ## builds source
+build: clean-build ## builds source to dist
 	npm run build
 
-release: dist  ## package and upload a release
+backup: ## backup dist to releases folder
+	cp -n "dist/index.js" "releases/${libName}-${libVersion}.min.js"
+	cp -f "dist/index.js" "releases/${libName}-latest.min.js"
+
+release: build  ## package and upload a release
 	npm publish

@@ -18,6 +18,8 @@
 - 测试覆盖度要求 `100%`
 - 本地构建 `make dist`，输出文件`dist/index.js`
 
+makefile中依赖`jq`命令，MacOS系统通过brew安装即可`brew install jq`.
+
 # 打包发版
 
   make release

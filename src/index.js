@@ -27,7 +27,7 @@ export default class Enum {
         members.push(member);
       });
     } else {
-      throw Error(`Failed to initialize enum, ${JSON.stringify(data)} wrong format`);
+      throw Error(`Failed to initialize enum, data=${JSON.stringify(data)} is wrong format`);
     }
     // 检查是否有重复的key
     const _keys = [];
@@ -40,7 +40,7 @@ export default class Enum {
       this[member.key] = member.value;
     });
     if (_keys.length === 0) {
-      throw Error('No member of the Enum is defined in the form {key, value, label}, The Enum has at least one member');
+      throw Error('No member of the Enum is defined in the form [{key, value, label}], The Enum has at least one member');
     }
 
     this.#members = members;

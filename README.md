@@ -12,7 +12,7 @@ Enum is a javascript enumeration module. It works with Node.js and the browser.
 	npm install js-enumerate
 
 ```javascript
-import Enum from 'js-enumerate';
+import * as Enum from 'js-enumerate';
 
 new Enum([
   { key: 'RED', value: 'red', label: '红色' },
@@ -23,13 +23,13 @@ new Enum([
 ### Bower
 
 ```html
-<script src="releases/js-enum-latest.min.js"></script>
+<script src="releases/js-enumerate-latest.min.js"></script>
 <script>
     new Enum([{ key: 'RED', value: 'red', label: '红色' }]);
 </script>
 ```
 
-> ps: 可自行将[releases/js-enum-latest.min.js](./releases/js-enum-latest.min.js)文件上传到CDN、或者拷贝到项目里引用。
+> ps: 可自行将[releases/js-enumerate-latest.min.js](./releases/js-enumerate-latest.min.js)文件上传到CDN、或者拷贝到项目里引用。
 
 # 类Enum
 
