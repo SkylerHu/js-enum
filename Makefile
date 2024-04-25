@@ -37,7 +37,7 @@ lint: ## check style with eslint
 test: lint ## run tests with coverage
 	npm run test
 
-build: clean-build ## builds source to dist
+build: test clean-build ## builds source to dist
 	npm run build
 
 backup: ## backup dist to releases folder

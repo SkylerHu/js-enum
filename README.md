@@ -3,11 +3,11 @@ Enum is a javascript enumeration module. It works with Node.js and the browser.
 
 构建Enum对象在JavaScript中使用，可用于枚举定义，前端组件单选、多选等的options选项的定义。
 
-## 使用
+## 1. 安装
 
 可查看版本变更记录[ChangeLog](./docs/CHANGELOG-1.x.md)
 
-### NodeJS
+### 1.1 NodeJS
 
 	npm install js-enumerate
 
@@ -17,10 +17,15 @@ import * as Enum from 'js-enumerate';
 new Enum([
   { key: 'RED', value: 'red', label: '红色' },
   { key: 'GREEN', value: 'green', label: '绿色' },
-])
+]);
+// 也可使用字典构造
+new Enum({
+  Red: 'red',
+  green: 'green',
+});
 ```
 
-### Bower
+### 1.2 Bower
 
 ```html
 <script src="releases/js-enumerate-latest.min.js"></script>
@@ -31,9 +36,9 @@ new Enum([
 
 > ps: 可自行将[releases/js-enumerate-latest.min.js](./releases/js-enumerate-latest.min.js)文件上传到CDN、或者拷贝到项目里引用。
 
-# 类Enum
+## 2. 使用(Usage)
 
-## constructor构造函数
+### 2.1 构造函数(constructor)
 
     new Enum(data, options)
 
@@ -51,9 +56,8 @@ options参数说明
 | freez | bool | 初始化枚举成员,只读不允许修改 | true |  |
 | allDefaultValue | object | 定义刷选默认"全部"的场景 | { key: '__ALL', value: '', label: '全部' } |  |
 
-## Usage使用示例
 
-### register全局注册
+### 2.2 全局注册register
 ```javascript
 // 在nodejs中定义 global.Enum
 // 在浏览器中定义 window.Enum
@@ -62,7 +66,7 @@ Enum.register();
 Enum.register("JsEnum"); // window.JsEnum
 ```
 
-### 用法示例
+### 2.3 基础用法
 ```javascript
 const Color = new Enum([
   { key: 'RED', value: 'red', label: '红色' },
@@ -112,7 +116,7 @@ ColorV2.Red // 'red'
 ColorV2.green // 'green'
 ```
 
-## 前端组件中使用
+### 2.4 前端组件中使用
 使用`React + Ant Design`举例：
 ```jsx
 import React from 'react';
@@ -127,6 +131,7 @@ const Color = new Enum([
 // 依次应用于 下拉选项、单选框、表格字段的筛选菜单项
 const App = () => (
   <>
+    {/*使用filters可以选择“全部”*/}
     <Select defaultValue={Color.RED} options={Color.filters} />
     <Radio.Group defaultValue={Color.GREEN} options={Color.options} />
     <Table colums={[{ key: 'color', title: '颜色', filters: Color.to_filters() }]}/>
@@ -134,7 +139,7 @@ const App = () => (
 );
 ```
 
-## 其他扩展用法
+### 2.5 其他扩展用法
 ```javascript
 const Color = new Enum([
   { key: 'RED', value: 'red', label: '红色', disabled: true, color: '#f00' },
@@ -163,12 +168,12 @@ redEdit.label = '大红色' // true
 redEdit.label // '大红色'
 ```
 
-## 内置属性
+### 2.6 内置属性
 - `length` 枚举实例所有成员个数
 - `options` 可用于下拉选择的数组数据
 - `filters` 可用于刷选的数组数据，比options多一个`value=''`的成员
 
-## Enum object API
+### 2.7 Enum object API
 - `forEach`,`map`,`filter` 这三个方法是对枚举成员迭代器进行遍历操作
 - `getMember(value)` 通过value获取成员对象
 - `has(value)` 值value是否在枚举定义的成员当中
@@ -177,9 +182,13 @@ redEdit.label // '大红色'
 - `getOptions(option = {})` 根据所有成员信息返回数组数据
 - `Enum.register(key = 'Enum')`类的静态方法，用于全局注册对象
 
-## 其他注意事项
-- 成员key属性`key`只能由数字、大小写字母、中横线、下划线组成的`字符串`，且不能以`__`开头；
+### 2.8 其他注意事项
+- 成员key属性只能由数字、大小写字母、中横线、下划线组成的`字符串`，且不能以`__`开头；
 - 成员key属性不能使用内置属性字符串，例如`length/options/filters`不能使用；
 - 成员`value`不能为`null`和`undefined`；
 - 成员`label`不能为`null`和`''`；
 - 枚举实例成员默认都被`freez`冻结，不允许修改；
+
+
+## 3. 推荐
+- 若是后端是Python语言，推荐 [py-enum](https://github.com/SkylerHu/py-enum) 配合该lib一起使用
