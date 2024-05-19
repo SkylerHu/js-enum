@@ -5,6 +5,8 @@ on:
     branches:
       - master
   pull_request:
+    types:
+      - opened
     branches:
       - master
 
@@ -80,4 +82,4 @@ jobs:
       - name: run test
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        run: npm test-cov
+        run: npm run test-cov

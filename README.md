@@ -2,6 +2,7 @@
 
 ![GitHub License](https://img.shields.io/github/license/SkylerHu/js-enum)
 ![NPM Version](https://img.shields.io/npm/v/js-enumerate)
+![GitHub Actions Workflow Status](https://github.com/SkylerHu/js-enum/actions/workflows/test.yml/badge.svg)
 ![Coveralls](https://img.shields.io/coverallsCoverage/github/SkylerHu/js-enum)
 
 
