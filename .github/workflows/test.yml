@@ -5,10 +5,9 @@ on:
     branches:
       - master
   pull_request:
-    types:
-      - opened
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   eslint:
