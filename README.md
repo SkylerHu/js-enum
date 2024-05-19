@@ -1,4 +1,10 @@
 # js-enumerate
+
+![GitHub License](https://img.shields.io/github/license/SkylerHu/js-enum)
+![NPM Version](https://img.shields.io/npm/v/js-enumerate)
+![Coveralls](https://img.shields.io/coverallsCoverage/github/SkylerHu/js-enum)
+
+
 Enum is a javascript enumeration module. It works with Node.js and the browser.
 
 构建Enum对象在JavaScript中使用，可用于枚举定义，前端组件单选、多选等的options选项的定义。
