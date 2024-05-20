@@ -1,12 +1,16 @@
-name: test and eslint
+name: eslint and test
 
 on:
   push:
     branches:
       - master
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
   pull_request:
-    branches:
-      - master
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
   workflow_dispatch:
 
 jobs:
