@@ -40,9 +40,9 @@ test: lint ## run tests with coverage
 build: test clean-build ## builds source to dist
 	npm run build
 
-backup: ## backup dist to releases folder
+backup: build ## backup dist to releases folder
 	cp -n "dist/index.js" "releases/${libName}-${libVersion}.min.js"
 	cp -f "dist/index.js" "releases/${libName}-latest.min.js"
 
-release: build  ## package and upload a release
+release: ## package and upload a release
 	npm publish
