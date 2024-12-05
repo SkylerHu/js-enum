@@ -19,7 +19,7 @@ Enum is a javascript enumeration module. It works with Node.js and the browser.
 	npm install js-enumerate
 
 ```javascript
-import * as Enum from 'js-enumerate';
+import Enum from 'js-enumerate';
 
 new Enum([
   { key: 'RED', value: 'red', label: '红色' },
