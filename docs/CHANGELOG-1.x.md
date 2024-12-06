@@ -1,5 +1,8 @@
 # Release Notes
 
+## 1.1.1 (2024-12-06)
+- build: 打包兼容 ESM/nodejs 项目
+
 ## 1.0.3 (2024-11-30)
 - build: change engines node >=12
 
