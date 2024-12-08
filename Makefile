@@ -41,7 +41,7 @@ build: test clean-build ## builds source to dist
 	npm run build
 
 backup: build ## backup dist to releases folder
-	cp -n "dist/index.js" "releases/${libName}-${libVersion}.min.js"
+	cp -n "dist/index.js" "releases/${libName}-${libVersion}.min.js" || true
 	cp -f "dist/index.js" "releases/${libName}-latest.min.js"
 
 release: ## package and upload a release

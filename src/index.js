@@ -1,4 +1,4 @@
-import { deepFreeze, isMemberLegal, isEmpty } from './utils.js';
+import { deepFreeze, isMemberLegal, isEmpty } from "./utils.js";
 
 export default class Enum {
   #members = [];
@@ -8,10 +8,13 @@ export default class Enum {
    * @param data 通过值初始化枚举，格式json/array
    * @param options 格式json
    */
-  constructor(data, {
-    freez = true, // 冻结数据
-    allDefaultValue = { key: '__ALL', value: '', label: '全部' },
-  } = {}) {
+  constructor(
+    data,
+    {
+      freez = true, // 冻结数据
+      allDefaultValue = { key: "__ALL", value: "", label: "全部" },
+    } = {}
+  ) {
     this.#allDefaultValue = allDefaultValue;
 
     const members = [];
@@ -20,7 +23,7 @@ export default class Enum {
         isMemberLegal(member);
         members.push(member);
       });
-    } else if (typeof data === 'object') {
+    } else if (typeof data === "object") {
       Object.keys(data).forEach(key => {
         const member = { key, value: data[key] };
         isMemberLegal(member);
@@ -40,17 +43,17 @@ export default class Enum {
       this[member.key] = member.value;
     });
     if (_keys.length === 0) {
-      throw Error('No member of the Enum is defined in the form [{key, value, label}], The Enum has at least one member');
+      throw Error("No member of the Enum is defined in the form [{key, value, label}], The Enum has at least one member");
     }
 
     this.#members = members;
-    Object.defineProperty(this, 'options', {
+    Object.defineProperty(this, "options", {
       enumerable: false,
       configurable: false,
       writable: false,
       value: this.getOptions({ enableAll: false }),
     });
-    Object.defineProperty(this, 'filters', {
+    Object.defineProperty(this, "filters", {
       enumerable: false,
       configurable: false,
       writable: false,
@@ -63,12 +66,20 @@ export default class Enum {
     }
   }
 
-  get length () { return this.#members.length; }
-  map (callback) { return this.#members.map(callback); }
-  forEach (callback) { return this.#members.forEach(callback); }
-  filter (callback) { return this.#members.filter(callback); }
+  get length() {
+    return this.#members.length;
+  }
+  map(callback) {
+    return this.#members.map(callback);
+  }
+  forEach(callback) {
+    return this.#members.forEach(callback);
+  }
+  filter(callback) {
+    return this.#members.filter(callback);
+  }
 
-  getMember (value) {
+  getMember(value) {
     const info = this.#members.filter(member => member.value === value);
     if (info.length > 0) {
       return info[0];
@@ -81,16 +92,16 @@ export default class Enum {
    * @param value
    * @returns {boolean}
    */
-  has (value) {
+  has(value) {
     return this.getMember(value) !== undefined;
   }
 
-  getLabel (value) {
+  getLabel(value) {
     const member = this.getMember(value);
     return this.#getMemberLabel(member, value);
   }
 
-  #getMemberLabel (member, defaultValue = '') {
+  #getMemberLabel(member, defaultValue = "") {
     if (!member) {
       return defaultValue;
     }
@@ -100,7 +111,7 @@ export default class Enum {
     return member.label;
   }
 
-  toJSON () {
+  toJSON() {
     return this.#members;
   }
 
@@ -109,19 +120,18 @@ export default class Enum {
    * @param options
    * @returns {{key: *}[]}
    */
-  to_filters (options = {}) {
-    return this.getOptions({ enableAll: false, keyLabel: 'text', ...options });
+  to_filters(options = {}) {
+    return this.getOptions({ enableAll: false, keyLabel: "text", ...options });
   }
-
 
   /**
    * 返回 单选框、多选框、选择器、表格等前端组件 所需要的枚举列表值
    * @returns {{key: *}[]}
    */
-  getOptions ({
+  getOptions({
     enableAll = true, // 主要用于下拉选项组件“全部”的场景
-    keyValue = 'value',
-    keyLabel = 'label',
+    keyValue = "value",
+    keyLabel = "label",
     allDefaultValue = null,
   } = {}) {
     const allValue = { ...this.#allDefaultValue, ...allDefaultValue };
@@ -141,10 +151,10 @@ export default class Enum {
     return options;
   }
 
-  [Symbol.iterator] () {
+  [Symbol.iterator]() {
     let index = 0;
     return {
-      next: () => index < this.#members.length ? { done: false, value: this.#members[index++] } : { done: true }
+      next: () => (index < this.#members.length ? { done: false, value: this.#members[index++] } : { done: true }),
     };
   }
 
@@ -152,11 +162,11 @@ export default class Enum {
    * 将类注册到全局使用
    * @param key
    */
-  static register(key = 'Enum') {
-    if (typeof window !== 'undefined' && !window[key]) {
+  static register(key = "Enum") {
+    if (typeof window !== "undefined" && !window[key]) {
       window[key] = Enum;
     }
-    if (typeof global !== 'undefined' && !global[key]) {
+    if (typeof global !== "undefined" && !global[key]) {
       global[key] = Enum;
     }
   }

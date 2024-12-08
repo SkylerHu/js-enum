@@ -17,6 +17,7 @@
   "parser": "babel-eslint",
   "rules": {
     "no-caller": 2,
+    "no-console": 2,
     "no-undef": 2,
     "no-unused-vars": 2,
     "no-use-before-define": 0,
@@ -34,7 +35,7 @@
     ],
     "quotes": [
       "error",
-      "single",
+      "double",
       {
         "allowTemplateLiterals": true
       }
