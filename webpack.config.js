@@ -1,11 +1,4 @@
-import path from 'path';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-
-import { fileURLToPath } from 'node:url';
-import { dirname } from 'node:path';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
+const path = require('path');
 
 const PATHS = {
   src: path.join(__dirname, 'src'),
@@ -45,17 +38,15 @@ const config = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
+          // 会自动读取 .labelrc 配置
           loader: 'babel-loader',
         },
       }
     ]
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-  ],
   optimization: {
     minimize: true,
   },
 };
 
-export default config;
+module.exports = config;
