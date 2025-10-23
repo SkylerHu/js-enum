@@ -141,7 +141,7 @@ const App = () => (
     {/*使用filters可以选择“全部”*/}
     <Select defaultValue={Color.RED} options={Color.filters} />
     <Radio.Group defaultValue={Color.GREEN} options={Color.options} />
-    <Table colums={[{ key: 'color', title: '颜色', filters: Color.to_filters() }]}/>
+    <Table colums={[{ key: 'color', title: '颜色', filters: Color.toFilters() }]}/>
   </>
 );
 ```
@@ -185,7 +185,7 @@ redEdit.label // '大红色'
 - `getMember(value)` 通过value获取成员对象
 - `has(value)` 值value是否在枚举定义的成员当中
 - `getLabel(value)` 通过value获取成员label用于展示
-- `to_filters()` 转换成ant design/element中表格table组件filters需要的刷选条件
+- `toFilters()` 转换成ant design/element中表格table组件filters需要的刷选条件
 - `getOptions(option = {})` 根据所有成员信息返回数组数据
 - `Enum.register(key = 'Enum')`类的静态方法，用于全局注册对象
 
