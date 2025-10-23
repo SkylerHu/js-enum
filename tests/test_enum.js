@@ -73,6 +73,7 @@ describe("test Enum use Color", () => {
     // 必须有字段存在
     expect(Color.options.filter(item => "key" in item && "value" in item && "label" in item).length).toBe(members.length);
     expect(Color.filters.filter(item => "key" in item && "value" in item && "label" in item).length).toBe(members.length + 1);
+    expect(Color.toFilters().filter(item => "key" in item && "value" in item && "text" in item).length).toBe(members.length);
     expect(Color.to_filters().filter(item => "key" in item && "value" in item && "text" in item).length).toBe(members.length);
   });
 
