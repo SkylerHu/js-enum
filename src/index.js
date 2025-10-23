@@ -120,8 +120,14 @@ export default class Enum {
    * @param options
    * @returns {{key: *}[]}
    */
-  to_filters(options = {}) {
+  toFilters(options = {}) {
     return this.getOptions({ enableAll: false, keyLabel: "text", ...options });
+  }
+
+  to_filters(options = {}) {
+    // eslint-disable-next-line no-console
+    console.warn("to_filters is deprecated, please use toFilters instead.");
+    return this.toFilters(options);
   }
 
   /**
