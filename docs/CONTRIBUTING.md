@@ -7,6 +7,7 @@
 
 常用命令：
 - 安装依赖 `npm install .`
+- 初始化 `npm run prepare`
 - 代码格式 `npm run lint`
 - 测试用例 `npm run test`
 - 构建 `npm run build` 构建出来的 `dist/index.js` 可用于 Brower 环境使用
